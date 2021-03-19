@@ -1,6 +1,7 @@
 ﻿using BlazorHero.CleanArchitecture.Application.Features.Brands.AddEdit;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
@@ -28,7 +29,6 @@ namespace BlazorHero.CleanArchitecture.Client.Pages.Catalog
         public string Description { get; set; }
 
         [CascadingParameter] private MudDialogInstance MudDialog { get; set; }
-
         public void Cancel()
         {
             MudDialog.Cancel();

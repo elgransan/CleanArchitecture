@@ -4,6 +4,7 @@ using BlazorHero.CleanArchitecture.Application.Responses.Identity;
 using BlazorHero.CleanArchitecture.Client.Infrastructure.Mappings;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
+using System;
 using System.Threading.Tasks;
 
 namespace BlazorHero.CleanArchitecture.Client.Pages.Identity
@@ -24,7 +25,6 @@ namespace BlazorHero.CleanArchitecture.Client.Pages.Identity
 
         protected override async Task OnInitializedAsync()
         {
-            _interceptor.RegisterEvent();
             _mapper = new MapperConfiguration(c => { c.AddProfile<RoleProfile>(); }).CreateMapper();
             var roleId = Id;
             var result = await _roleManager.GetPermissionsAsync(roleId);
@@ -37,7 +37,6 @@ namespace BlazorHero.CleanArchitecture.Client.Pages.Identity
                 }
             }
         }
-        public void Dispose() => _interceptor.DisposeEvent();
         private async Task SaveAsync()
         {
             var request = _mapper.Map<PermissionResponse, PermissionRequest>(model);

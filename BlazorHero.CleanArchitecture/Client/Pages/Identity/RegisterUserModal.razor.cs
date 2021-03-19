@@ -1,6 +1,7 @@
 ﻿using BlazorHero.CleanArchitecture.Application.Requests.Identity;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
@@ -51,7 +52,6 @@ namespace BlazorHero.CleanArchitecture.Client.Pages.Identity
         {
             MudDialog.Cancel();
         }
-
         private async Task SaveAsync()
         {
             form.Validate();
@@ -84,7 +84,6 @@ namespace BlazorHero.CleanArchitecture.Client.Pages.Identity
                 }
             }
         }
-
         private IEnumerable<string> PasswordStrength(string pw)
         {
             if (string.IsNullOrWhiteSpace(pw))

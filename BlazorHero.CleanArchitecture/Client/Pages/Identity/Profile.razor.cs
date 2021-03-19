@@ -35,8 +35,10 @@ namespace BlazorHero.CleanArchitecture.Client.Pages.Identity
             }
         }
 
-        protected override async Task OnInitializedAsync() => await LoadDataAsync();
-
+        protected override async Task OnInitializedAsync()
+        {
+            await LoadDataAsync();
+        }
         private async Task LoadDataAsync()
         {
             var state = await _stateProvider.GetAuthenticationStateAsync();

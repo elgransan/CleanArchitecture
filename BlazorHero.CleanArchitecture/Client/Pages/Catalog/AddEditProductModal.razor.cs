@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BlazorHero.CleanArchitecture.Client.Pages.Catalog
 {
-    public partial class AddEditProductModal
+    public partial class AddEditProductModal 
     {
         private bool success;
         private string[] errors = { };
@@ -79,7 +79,10 @@ namespace BlazorHero.CleanArchitecture.Client.Pages.Catalog
             }
         }
 
-        protected override async Task OnInitializedAsync() => await LoadDataAsync();
+        protected override async Task OnInitializedAsync()
+        {
+            await LoadDataAsync();
+        }
 
         private async Task LoadDataAsync()
         {

@@ -1,6 +1,7 @@
 ﻿using BlazorHero.CleanArchitecture.Application.Requests.Identity;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
+using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -12,24 +13,19 @@ namespace BlazorHero.CleanArchitecture.Client.Pages.Identity
         [Inject] private Microsoft.Extensions.Localization.IStringLocalizer<Security> localizer { get; set; }
 
         private readonly ChangePasswordRequest passwordModel = new ChangePasswordRequest();
-
-        protected override void OnInitialized()
-        {
-        }
-
         private async Task ChangePasswordAsync()
         {
             var response = await _accountManager.ChangePasswordAsync(passwordModel);
-            if(response.Succeeded)
+            if (response.Succeeded)
             {
-                _snackBar.Add("Password Changed!",Severity.Success);
+                _snackBar.Add("Password Changed!", Severity.Success);
                 passwordModel.Password = string.Empty;
                 passwordModel.NewPassword = string.Empty;
                 passwordModel.ConfirmNewPassword = string.Empty;
             }
             else
             {
-                foreach(var error in response.Messages)
+                foreach (var error in response.Messages)
                 {
                     _snackBar.Add(error, Severity.Error);
                 }

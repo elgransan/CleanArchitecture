@@ -1,6 +1,7 @@
 ﻿using BlazorHero.CleanArchitecture.Application.Requests.Identity;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
@@ -25,7 +26,6 @@ namespace BlazorHero.CleanArchitecture.Client.Pages.Identity
         {
             MudDialog.Cancel();
         }
-
         private async Task SaveAsync()
         {
             form.Validate();
